@@ -1,0 +1,41 @@
+{
+    "name": "enterprise-agent-vscode",
+    "displayName": "Enterprise AI Agent",
+    "description": "Enterprise-grade AI coding and workflow automation agent",
+    "version": "0.1.0",
+    "publisher": "enterprise-agent",
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "AI"
+    ],
+    "activationEvents": [],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "enterprise-agent.start",
+                "title": "Start Enterprise Agent"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "enterprise-agent-sidebar",
+                    "title": "Enterprise Agent",
+                    "icon": "assets/icon.svg"
+                }
+            ]
+        },
+        "views": {
+            "enterprise-agent-sidebar": [
+                {
+                    "id": "enterprise-agent-chat",
+                    "name": "Chat"
+                }
+            ]
+        }
+    }
+}
