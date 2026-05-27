@@ -12,7 +12,8 @@ Inspired by `Roo-Code`, `Cline`, and `everything-claude-code`.
 ## 🏗️ Architecture
 - **Multi-Agent Orchestration:** Specialized agents (Planner, Executor, Reviewer) collaborate via a central Orchestrator.
 - **Async-First Runtime:** High-concurrency agent loops built on FastAPI and Python's `asyncio`.
-- **Secure Sandbox:** Tool execution isolated in ephemeral environments with strict governance.
+- **Secure Sandbox:** Tool execution isolated in ephemeral environments with strict governance and command-list execution.
+- **Intelligence Bridge:** A dedicated service for offloading high-thinking reasoning and semantic memory tasks from other agent harnesses (like OpenClaw).
 - **Memory/RAG Service:** Hybrid memory combining short-term context, episodic task history, and long-term vector storage (Qdrant).
 - **Observability:** Native OpenTelemetry integration for full-stack tracing and metrics.
 

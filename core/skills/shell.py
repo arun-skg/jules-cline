@@ -13,9 +13,11 @@ class ShellSkill(BaseSkill):
             permissions=["shell:execute"]
         ))
 
-    async def execute(self, command: str) -> ToolResult:
-        process = await asyncio.create_subprocess_shell(
+    async def execute(self, command: str, args: List[str] = []) -> ToolResult:
+        # Use exec for security instead of shell
+        process = await asyncio.create_subprocess_exec(
             command,
+            *args,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )

@@ -19,7 +19,7 @@ class AuditLogger:
 
     def log_action(self, user_id: str, tenant_id: str, agent_id: str, action: str, details: Dict[str, Any], status: str):
         entry = AuditEntry(
-            timestamp=datetime.datetime.utcnow().isoformat(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc).isoformat(),
             user_id=user_id,
             tenant_id=tenant_id,
             agent_id=agent_id,

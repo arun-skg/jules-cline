@@ -14,9 +14,11 @@ class GitSkill(BaseSkill):
         ))
 
     async def execute(self, command: str, args: List[str] = []) -> ToolResult:
-        full_command = f"git {command} {' '.join(args)}"
-        process = await asyncio.create_subprocess_shell(
-            full_command,
+        # Use exec for security instead of shell
+        process = await asyncio.create_subprocess_exec(
+            "git",
+            command,
+            *args,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE
         )

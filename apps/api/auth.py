@@ -4,8 +4,10 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
 
+import os
+
 # Secret key for JWT
-SECRET_KEY = "enterprise-secret-key-change-in-production"
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-for-dev-only-do-not-use-in-prod")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
